@@ -1,12 +1,11 @@
 <template>
     <div id="app-sidebar">
         <v-layout>
-            <v-app-bar>
-                <AppToolbar/>
-            </v-app-bar>
+            <AppToolbar/>
 
             <v-navigation-drawer
                 v-if="appSidebarStore.isSidebarOpened"
+                disable-resize-watcher
                 theme="light">
                 <v-list density="compact">
                     <v-list-item v-for="(item, index) in appSidebarStore.getFrames"
@@ -17,7 +16,7 @@
                 </v-list>
             </v-navigation-drawer>
 
-            <v-main :class="{'sidebar-closed':!appSidebarStore.isSidebarOpened}">
+            <v-main class="app-content" :class="{'sidebar-closed':!appSidebarStore.isSidebarOpened}">
                 <slot name="content"/>
             </v-main>
         </v-layout>
@@ -43,7 +42,16 @@
 
 <style lang="scss">
     #app-sidebar {
+        .v-main.app-content {
+            width: 100%;
+            position: fixed;
+            overflow-y: auto;
+            top: 0;
+            bottom: 0;
+            color: var(--color-text-black);
+        }
         .v-navigation-drawer {
+            width: var(--app-sidebar-width) !important;
             &__content {}
         }
     }

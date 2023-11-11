@@ -1,20 +1,21 @@
 <template>
-    <v-toolbar id="app-toolbar">
+    <v-app-bar id="app-toolbar">
         <div class="content">
-            <div class="left">
+            <div class="left-sidebar">
                 <v-btn @click="appSidebarStore.changeSidebarVisibility"
                        class="sidebar-toggle-btn"
                        plain>
                     <v-icon icon="mdi-menu"/>
                 </v-btn>
             </div>
+            <div class="left"></div>
             <div class="right">
                 <change-language-dropdown/>
                 <v-btn text="Звонок бесплатный"/>
             </div>
         </div>
         <v-progress-linear v-if="siteStore.isBusy"/>
-    </v-toolbar>
+    </v-app-bar>
 </template>
 
 <script>
@@ -43,7 +44,6 @@ export default {
         align-items: center;
         justify-content: space-between;
         background-color: var(--color-background-mute);
-        padding: 0 16px 0 16px;
         width: 100%;
         min-height: 64px;
         color: var(--color-text-white);
@@ -54,14 +54,15 @@ export default {
             font-weight: 500;
         }
 
-        .left {
+        .left-sidebar, .left, .right {
             display: flex;
             align-items: center;
-            width: 70%;
-            gap: 30px;
-            span {
-                font-weight: 500;
-            }
+        }
+
+        .left-sidebar {
+            width: var(--app-sidebar-width);
+            justify-content: space-between;
+            padding-left: 16px;
             .sidebar-toggle-btn {
                 min-width: unset;
                 color: var(--color-text-black);
@@ -69,13 +70,19 @@ export default {
             }
         }
 
+        .left {
+            gap: 30px;
+            span {
+                font-weight: 500;
+            }
+        }
+
         .right {
-            display: flex;
-            align-items: center;
             justify-content: right;
             font-size: var(--font-size-small);
             width: 30%;
-            gap: 30px;
+            gap: 10px;
+            padding-right: 16px;
         }
     }
 }

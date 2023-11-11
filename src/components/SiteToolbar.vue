@@ -6,7 +6,7 @@
             </div>
             <div class="right">
                 <change-language-dropdown/>
-                <v-btn variant="outlined" text="Личный кабинет"/>
+                <v-btn variant="outlined" text="Личный кабинет" @click="router.push('/app')"/>
             </div>
         </div>
         <v-progress-linear v-if="siteStore.isBusy"/>
@@ -17,6 +17,7 @@
     import {useSiteStore} from "../stores/site";
     import IconTextButton from "./IconTextButton.vue";
     import ChangeLanguageDropdown from "./ChangeLanguageDropdown.vue";
+    import router from "../router";
 
     export default {
         components: {
@@ -25,7 +26,7 @@
         },
         setup() {
             const siteStore = useSiteStore();
-            return {siteStore}
+            return {siteStore, router}
         }
     }
 </script>

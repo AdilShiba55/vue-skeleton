@@ -8,7 +8,9 @@
   --color-border: #0dc5f3;
 
   --font-size-medium: 16px;
-  --font-size-small: 13px
+  --font-size-small: 13px;
+
+  --app-sidebar-width: 256px;
 
 }
 

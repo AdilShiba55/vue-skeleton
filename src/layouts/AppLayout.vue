@@ -6,13 +6,16 @@
             </template>
         </AppSidebar>
     </div>
+
+    <ErrorDialog/>
 </template>
 
 <script>
 import AppSidebar from "../components/AppSidebar.vue";
 import {useAppSidebarStore} from "../stores/appSidebar";
+import ErrorDialog from "../dialog/ErrorDialog.vue";
 export default {
-    components: {AppSidebar},
+    components: {ErrorDialog, AppSidebar},
     setup() {
         const appSidebarStore = useAppSidebarStore();
         appSidebarStore.setFrames()
