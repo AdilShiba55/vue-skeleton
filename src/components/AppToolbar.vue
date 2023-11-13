@@ -11,7 +11,6 @@
             <div class="left"></div>
             <div class="right">
                 <change-language-dropdown/>
-                <v-btn text="Звонок бесплатный"/>
             </div>
         </div>
         <v-progress-linear v-if="siteStore.isBusy"/>

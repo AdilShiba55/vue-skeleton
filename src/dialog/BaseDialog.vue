@@ -51,6 +51,7 @@ export default {
     .v-dialog.base-dialog {
         .v-overlay__content {
             min-width: 350px;
+            max-height: unset;
             .v-card {
                 overflow-y: hidden;
             }
